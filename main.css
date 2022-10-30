@@ -6,6 +6,7 @@
 
 }
 
+/* Whole page */
 .container
 {
     width: 100%;
@@ -15,6 +16,7 @@
     justify-content: center;
 }
 
+/* Search bar and Icon */
 .search-bar
 {
     width: 100%;
@@ -69,6 +71,7 @@
     justify-content: center;
 }
 
+/* Headings */
 .headline h1
 {
     background: linear-gradient(to right, rgba(266, 95, 47), rgba(255, 255,255)););
@@ -110,6 +113,7 @@
     }
 }
 
+/* My lists */
 li
 {
     list-style-type: none;
@@ -130,6 +134,7 @@ ul
     columns: 3;
 }
 
+/* Buttons */
 .button
 {
     background-color: #f77f00;
@@ -159,15 +164,10 @@ ul
     font-size: 14px;
 }
 
-.button:hover, .button:focus
+.button:hover
 {
     background-color: white;
     color: #f77f00;
-}
-
-.button:focus
-{
-    box-shadow: 0 0 0 4px rgba(0, 149, 255, .15);
 }
 
 .button:active
@@ -184,18 +184,10 @@ ul
     justify-content: center;
 
 }
+
+/* Pharagraphs */
 p
 {
     margin: 5px;
 }
 
-#all-movies
-{
-    align-items: center;
-}
-
-.all-movies
-{
-    display: flex;
-    justify-content: center;
-}
