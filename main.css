@@ -96,7 +96,7 @@
     width: 100%;
     font-size:1.2em ;
 
-    animation: fade 2s ease-in;
+    animation: fade 1s ease-in;
 }
 
 @keyframes fade {
