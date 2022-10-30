@@ -33,9 +33,9 @@ fetch('https://gist.githubusercontent.com/pankaj28843/08f397fcea7c760a99206bcb0a
 
 // Functions
 
-    /*  A function that uses a for loop, because I want to check each movie from the Json Api.
-    Here I create a li inside our ul. And then we want to create a p-tag for each key in the array.
-    Then we use the appendChild method, that adds a child to the end of each parent, in my case every p tag. */
+        /*  A function that uses a for loop, because I want to check each movie from the Json Api.
+        Here I create a li inside our ul. And then we want to create a p-tag for each key in the array.
+        Then we use the appendChild method, that adds a child to the end of each parent, in my case every p tag. */
 
         function renderMovies (ul, movieData)
         {
@@ -89,6 +89,35 @@ function resetListsAndHeadlineForLists ()
     headlineForLists.innerHTML = ""
 }
 
+
+/* Search engine, I want to make a search engine that checks every letter in the title and then the list/lists
+appears if it has that letter in it */
+
+        // https://www.youtube.com/watch?v=ZFUOC-y4i0s Ved ikke helt hvorfor jeg ikke kan få det til at fungere.
+        // Mit log siger at det har noget at gøre med min textValue.toUpperCase(), men kan sku ikke helt finde ud af det...
+function searchEngine ()
+{
+    resetLists()
+    const ulSearch = document.querySelector(".list-of-movies")
+    const titleSearch = ulSearch.querySelectorAll("li")
+
+    for (let i = 0; i < movieDataGlobal[i].title.length ; i++)
+    {
+        console.log("hejehej")
+        let match = movieDataGlobal[i].title[0];
+        if(match){
+            let textValue = match.textContent || match.innerHTML
+
+            if (textValue.toUpperCase().indexOf(movieDataGlobal) > -1)
+            {
+                titleSearch[i].style.display = "";
+            } else {
+                titleSearch[i].style.display = "none";
+            }
+        }
+    }
+}
+
 // All Movies Button ->
 function getAllMovies ()
 {
@@ -126,36 +155,8 @@ function getAllMovies ()
     }
 }
 
-/* Search engine, I want to make a search engine that checks every letter in the title and then the list/lists
-appears if it has that letter in it */
-
-// https://www.youtube.com/watch?v=ZFUOC-y4i0s Ved ikke helt hvorfor jeg ikke kan få det til at fungere.
-// Mit log siger at det har noget at gøre med min textValue.toUpperCase()...
-function searchEngine ()
-{
-    resetLists()
-    const ulSearch = document.querySelector(".list-of-movies")
-    const titleSearch = ulSearch.querySelectorAll("li")
-
-    for (let i = 0; i < movieDataGlobal[i].title.length ; i++)
-    {
-        console.log("hejehej")
-        let match = movieDataGlobal[i].title[0];
-        if(match){
-            let textValue = match.textContent || match.innerHTML
-
-            if (textValue.toUpperCase().indexOf(movieDataGlobal) > -1)
-            {
-                titleSearch[i].style.display = "";
-            } else {
-                titleSearch[i].style.display = "none";
-            }
-        }
-    }
-}
-
 // Best Rated Movies Button ->
-    // Headline for when I push the "Best rated movies button"
+// Headline for when I push the "Best rated movies button"
 function renderHeadlineForListsTop10RatedMovies ()
 {
     resetListsAndHeadlineForLists()
@@ -165,7 +166,7 @@ function renderHeadlineForListsTop10RatedMovies ()
     headlineForLists.appendChild(bestRatedMoviesH1)
 }
 
-    // Get best rated movies
+// Get best rated movies
 function getTop10BestRatedMovies ()
 {
     // I create a loop that checks every element in [i].rating column that's bigger or equal to 8.9
@@ -200,7 +201,7 @@ function getTop10BestRatedMovies ()
 }
 
 // Get Newer Movies Button ->
-    // Headline for when I push the "Get newer movies button"
+// Headline for when I push the "Get newer movies button"
 function renderHeadlineForListsNewMovies ()
 {
     resetListsAndHeadlineForLists()
